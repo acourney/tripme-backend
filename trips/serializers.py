@@ -9,11 +9,11 @@ class TripSerializer(serializers.HyperlinkedModelSerializer):
     trip_url = serializers.ModelSerializer.serializer_url_field(
         view_name='trip_detail')
 
-    # owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Trip
-        fields = ('id', 'label', 'destination', 'todos', 'trip_url',)
+        fields = ('id', 'label', 'destination', 'todos', 'trip_url', 'owner')
 
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
@@ -23,9 +23,9 @@ class TodoSerializer(serializers.HyperlinkedModelSerializer):
     trip_id = serializers.PrimaryKeyRelatedField(
         source='trip', queryset=Trip.objects.all())
 
-    # owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Todo
-        fields = ('id', 'summary', 'body', 'trip', 'trip_id',)
+        fields = ('id', 'summary', 'body', 'trip', 'trip_id', 'owner')
             
