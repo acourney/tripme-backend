@@ -13,7 +13,7 @@ class TripSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Trip
-        fields = ('id', 'label', 'destination', 'todos', 'trip_url', 'owner')
+        fields = ('id', 'label', 'destination', 'todos', 'trip_url', 'owner', 'photo')
 
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
@@ -27,5 +27,5 @@ class TodoSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Todo
-        fields = ('id', 'summary', 'body', 'trip', 'trip_id', 'owner')
+        fields = ('id', 'summary', 'body', 'trip', 'trip_id', 'owner', 'photo')
             

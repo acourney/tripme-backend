@@ -4,7 +4,7 @@ class Trip(models.Model):
     label = models.CharField(max_length=200)
     destination = models.CharField(max_length=500)
     owner = models.ForeignKey('users.User', related_name='trips', on_delete=models.CASCADE, default='1')
-    # photo = models.ImageField(upload_to='images/', default='images/default.jpg', blank=True)
+    photo = models.ImageField(upload_to='images/', default='images/default.jpg', blank=True)
 
     def __str__(self):
         return self.label
