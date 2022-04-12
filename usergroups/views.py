@@ -10,6 +10,3 @@ class UserGroupDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UserGroup.objects.all()
     serializer_class = UserGroupSerializer
 
-
-
-

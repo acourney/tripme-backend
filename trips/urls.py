@@ -16,4 +16,8 @@ urlpatterns = [
     # PUT localhost:8000/todos/:id
     # DELETE localhost:8000/todos/:id
     path('todos/<int:pk>', views.TodoDetail.as_view(), name='todo_detail'),
+
+    # path('members/', views.TripMemberList.as_view(), name='member_list'),
+    # path('members/<int:pk>', views.TripMemberDetail.as_view(), name='member_detail'),
+
 ]
