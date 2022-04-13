@@ -1,5 +1,6 @@
 from rest_framework import generics, permissions  
 from .models import Trip, Todo
+from django.db.models import Q
 from .serializers import TripSerializer, TodoSerializer
 from .permissions import IsOwnerOrReadOnly
 from pprint import pprint
@@ -23,7 +24,8 @@ class TripList(generics.ListCreateAPIView):
         user = self.request.user
         print("REQ USER: " + str(self.request.user))
         print("REQ USER ID: " + str(self.request.user.id))
-        return Trip.objects.filter(owner=self.request.user.id)
+        return Trip.objects.filter(Q(members__in=[self.request.user]) | Q(owner=self.request.user))
+        # return Trip.objects.filter(owner=self.request.user.id)
 
 
 class TripDetail(generics.RetrieveUpdateDestroyAPIView):
