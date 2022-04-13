@@ -24,7 +24,7 @@ class TripSerializer(serializers.HyperlinkedModelSerializer):
     trip_url = serializers.ModelSerializer.serializer_url_field(
         view_name='trip_detail')
 
-    owner = serializers.ReadOnlyField(source='owner.username')
+    owner = serializers.ReadOnlyField(source='owner.id')
 
     members = MemberSerializer(many=True, queryset=User.objects.all())
 

@@ -8,6 +8,6 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
     USERNAME_FIELD = 'email'
 
-    def get_username(self):
-        return self.username
+    def get_user(self):
+        return self
         

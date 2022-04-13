@@ -15,6 +15,7 @@ djangorestframework = "*"
 pillow = "*"
 boto3 = "*"
 django-storages = "*"
+django-filter = "*"
 
 [dev-packages]
 
