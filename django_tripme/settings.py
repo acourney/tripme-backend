@@ -1,3 +1,7 @@
+import os
+import dj_database_url
+
+
 """
 Django settings for django_tripme project.
 
@@ -10,8 +14,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from pathlib import Path
-import os
-import dj_database_url
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -46,7 +48,6 @@ INSTALLED_APPS = [
     'rest_framework', 
     'rest_framework.authtoken', 
     'trips',
-    'usergroups',
     'django_filters',
 ]
 
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'django_tripme.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-  'default': dj_database_url.config(conn_max_age=600)
+    'default': dj_database_url.config(conn_max_age=600)
 }
 
 

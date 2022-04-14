@@ -1,2 +1,2 @@
 # Replace example_django with your project root name:
-web: gunicorn tripme.wsgi
+web: gunicorn django_tripme.wsgi
