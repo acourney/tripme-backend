@@ -12,10 +12,9 @@ class Trip(models.Model):
         return self.label
 
 class Todo(models.Model):
-    summary = models.CharField(max_length=200)
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name="todos")
     body = models.TextField()
     owner = models.ForeignKey('users.User', related_name='todos', on_delete=models.CASCADE, default='1')
 
     def __str__(self):
-        return self.summary
+        return self.body

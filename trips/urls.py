@@ -8,7 +8,7 @@ urlpatterns = [
     path('trips/<int:pk>',
         views.TripDetail.as_view(), name='trip_detail'),
 
-    path('todos/', views.TodoList.as_view(), name='todo_list'),
+    path('trips/<int:pk>/todos/', views.TodoList.as_view(), name='todo_list'),
 
     path('todos/<int:pk>', views.TodoDetail.as_view(), name='todo_detail'),
 
