@@ -19,11 +19,7 @@ class TripList(generics.ListCreateAPIView):
         This view should return a list of all the purchases
         for the currently authenticated user.
         """
-        print("REQ: " + str(self.request))
-        pprint(vars(self.request))
         user = self.request.user
-        print("REQ USER: " + str(self.request.user))
-        print("REQ USER ID: " + str(self.request.user.id))
         return Trip.objects.filter(Q(members__in=[self.request.user]) | Q(owner=self.request.user))
         # return Trip.objects.filter(owner=self.request.user.id)
 
