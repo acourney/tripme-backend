@@ -25,8 +25,6 @@ class TripSerializer(serializers.HyperlinkedModelSerializer):
 
     members = MemberSerializer(many=True, queryset=User.objects.all())
 
-    
-
     class Meta:
         model = Trip
         fields = ('id', 'label', 'destination', 'todos', 'trip_url', 'owner', 'photo', 'members')

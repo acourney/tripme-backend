@@ -7,7 +7,7 @@ from pprint import pprint
 
 
 class TripList(generics.ListCreateAPIView):
-    # queryset = Trip.objects.all()
+
     serializer_class = TripSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
@@ -15,14 +15,8 @@ class TripList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
     def get_queryset(self):
-        """
-        This view should return a list of all the purchases
-        for the currently authenticated user.
-        """
         user = self.request.user
         return Trip.objects.filter(Q(members__in=[self.request.user]) | Q(owner=self.request.user))
-        # return Trip.objects.filter(owner=self.request.user.id)
-
 
 class TripDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Trip.objects.all()

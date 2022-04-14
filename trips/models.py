@@ -19,7 +19,3 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.summary
-
-# class TripMember(models.Model):
-#     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-#     members = models.ForeignKey(User, on_delete=models.CASCADE)
