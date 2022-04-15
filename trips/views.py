@@ -16,13 +16,12 @@ class TripList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Trip.objects.filter(Q(members__in=[self.request.user]) | Q(owner=self.request.user))
+        return Trip.objects.filter(Q(members__in=[self.request.user]) | Q(owner=self.request.user)).distinct()
 
 class TripDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Trip.objects.all()
     serializer_class = TripSerializer
     permission_classes = [IsOwnerOrReadOnly]
-
 
 
 
